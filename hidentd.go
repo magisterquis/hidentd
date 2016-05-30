@@ -89,6 +89,7 @@ func cleanAddr(a string) *string {
 
 // handle logs and replies to a client
 func handle(c net.Conn, os, uname string) {
+	defer c.Close()
 	tc := textproto.NewConn(c)
 
 	/* Get the request */
